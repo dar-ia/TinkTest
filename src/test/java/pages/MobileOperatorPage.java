@@ -77,7 +77,7 @@ public class MobileOperatorPage {
     public MobileOperatorPage selectBeautyNumber(int num) {
         beautyNumbers.get(num)
                 .scrollIntoView(true)
-                .click();
+                .click(ClickOptions.usingJavaScript());
         return this;
     }
 

@@ -1,6 +1,4 @@
 package tests;
-
-import io.qameta.allure.Param;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -74,8 +72,6 @@ public class MobileTest extends TestBase{
         mobilePage.assertThatNumberIsInFavs(selectedNumber);
 
     }
-
-    //@Test
     @DisplayName("Данные для роуминга корректные")
     @Tags({
             @Tag("FUll_SCOPE"),
@@ -112,7 +108,4 @@ public class MobileTest extends TestBase{
                 .assertTariffResult("СМС",smsPrice);
 
     }
-    //роуминг
-    //Таиланд + ОАЭ
-    //провалидировать прайсы
 }

@@ -75,16 +75,15 @@ public class MobileOperatorPage {
 
     @Step("Выбрать случайный номер из списка")
     public MobileOperatorPage selectBeautyNumber(int num) {
-        numbersView.scrollTo();
         beautyNumbers.get(num)
+                .scrollTo()
                 .click();
         return this;
     }
 
     @Step("Добавить номер в избранное")
     public MobileOperatorPage clickOnHeart(int num) {
-        numbersView.scrollTo();
-        beautyNumbers.get(num).hover();
+        beautyNumbers.get(num).scrollTo().hover();
         beautyNumbers.get(num).$("[data-qa-type='mvno/iconHeart']").click();
 
         return this;

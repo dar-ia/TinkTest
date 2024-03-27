@@ -63,6 +63,7 @@ public class MobileOperatorPage {
         return this;
     }
 
+    @Step("Запомнить выбранный номер")
     public List<String> fetchBeautyNumberValues(int num) {
         SelenideElement selectedNumber = beautyNumbers.get(num).scrollTo();
         String number = selectedNumber.$("[data-qa-type='mvno/NumberSelectListItem.title']").getText();

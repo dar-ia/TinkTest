@@ -120,7 +120,7 @@ public class MobileOperatorPage {
         return this;
     }
 
-    @Step("'{optionName}' стоит optionPrice")
+    @Step("'{optionName}' стоит {optionPrice}")
     public MobileOperatorPage assertTariffResult(String optionName, String optionPrice) {
         SelenideElement roamingResultElement = roamingTariffResults.findBy(Condition.text(optionName)).parent();
         String stringPrice = roamingResultElement.$("[data-qa-type='uikit/money']")

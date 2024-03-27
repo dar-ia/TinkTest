@@ -76,7 +76,7 @@ public class MobileOperatorPage {
     @Step("Выбрать случайный номер из списка")
     public MobileOperatorPage selectBeautyNumber(int num) {
         beautyNumbers.get(num)
-                .scrollTo()
+                .scrollIntoView(true)
                 .click();
         return this;
     }

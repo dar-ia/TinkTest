@@ -83,7 +83,8 @@ public class MobileOperatorPage {
 
     @Step("Добавить номер в избранное")
     public MobileOperatorPage clickOnHeart(int num) {
-        beautyNumbers.get(num).scrollTo().hover();
+        numbersView.scrollTo();
+        beautyNumbers.get(num).hover();
         beautyNumbers.get(num).$("[data-qa-type='mvno/iconHeart']").click();
 
         return this;

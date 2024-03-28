@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
 import pages.MainPage;
-@DisplayName("Authorization form tests")
+@DisplayName("Тесты на авторизацию")
 public class AuthorizeTest extends TestBase{
     MainPage mainPage = new MainPage();
     LoginPage loginPage = new LoginPage();
 
 
     @Test
-    @DisplayName("Authorization failed for invalid number format")
+    @DisplayName("Негативный тест на авторизацию с не валидным форматом номера")
     @Tags({
             @Tag("NEGATIVE"),
             @Tag("FUll_SCOPE"),

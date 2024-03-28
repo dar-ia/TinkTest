@@ -10,7 +10,7 @@ public class LoginPage extends MainPage{
     SelenideElement phoneNumber=$("input[automation-id='phone-input']");
     SelenideElement submit=$("button[automation-id='button-submit']");
     SelenideElement errorText=$("[automation-id='server-error']");
-@Step("Пользователь пытается залогиниться с номером {number}")
+@Step("Пользователь пытается залогиниться с невалидным номером {number}")
     public LoginPage tryToLogin(String number){
         //sleep(3000);
         switchTo().window(1);

@@ -4,11 +4,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import pages.BusinessPage;
 import pages.MainPage;
 
+import java.util.stream.Stream;
+
 @DisplayName("Тесты на секцию для бизнес пользователей")
-public class BusinessTest extends TestBase{
+public class BusinessTest extends TestBase {
 
     MainPage mainPage = new MainPage();
     BusinessPage businessPage = new BusinessPage();
@@ -20,8 +25,7 @@ public class BusinessTest extends TestBase{
             @Tag("READ_ONLY_TEST"),
             @Tag("BUSINESS_TEST")
     })
-
-    void accountingCanBeStarted(){
+    void accountingCanBeStarted() {
         mainPage.openPage()
                 .openBusinessSection()
                 .navigateToAccounting();
@@ -30,24 +34,34 @@ public class BusinessTest extends TestBase{
     }
 
     @Test
-    @DisplayName("Валютный счёт может быть открыт для компаний с разным годовым доходом")
+    @ParameterizedTest(name = "Валютный счёт может быть открыт для компаний с разным годовым доходом {0} 120")
+    @MethodSource
     @Tags({
             @Tag("FUll_SCOPE"),
             @Tag("READ_ONLY_TEST"),
             @Tag("BUSINESS_TEST")
     })
-    void currencyThreshHoldTest(){
+    void currencyThreshHoldTest(String threshHold, String currencyTitle, String currencyRequestTitle) {
         mainPage.openPage()
                 .openBusinessSection()
                 .navigateToCurrency();
 
-        businessPage.assertCurrencyTitle("Валютный счет для ИП и юридических лиц")
+        businessPage.changeThreshHold(threshHold)
+                .assertCurrencyTitle(currencyTitle)
                 .openCurrencyAccount()
-                .assertCurrencyRequestTitle("Заполните заявку на расчетный счет")
-                .changeThreshHold(">")
-                .assertCurrencyTitle("Банк для ВЭД")
-                .openCurrencyAccount()
-                .assertCurrencyRequestTitle("Открыть валютный счет онлайн");
+                .assertCurrencyRequestTitle(currencyRequestTitle);
+
+    }
+
+    static Stream<Arguments> currencyThreshHoldTest() {
+        return Stream.of(
+                Arguments.of("<",
+                        "Валютный счет для ИП и юридических лиц",
+                        "Заполните заявку на расчетный счет"),
+                Arguments.of(">",
+                        "Банк для ВЭД",
+                        "Открыть валютный счет онлайн")
+        );
 
     }
 

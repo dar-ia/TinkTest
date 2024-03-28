@@ -23,7 +23,7 @@ public class MainPage {
         return this;
     }
 
-    @Step("Перейти к личному кабинету (Интрнет-Банк)")
+    @Step("Перейти к личному кабинету (Интернет-Банк)")
     public MainPage initiateLogIn() {
         loginButton.hover();
         loginOption.click();
@@ -36,20 +36,20 @@ public class MainPage {
         return this;
     }
 
-    @Step("Открыть меню для бизнеса")
+    @Step("Навести курсор на <Бизнесу> на верхней панели")
     public MainPage openBusinessSection() {
         sleep(1000);
         businessOption.hover();
         return this;
     }
 
-    @Step("Перейти к расчётному счёту")
+    @Step("Выбрать <Расчетный счет>")
     public MainPage navigateToAccounting() {
         accountingMenu.click();
         return this;
     }
 
-    @Step("Перейти к валютам")
+    @Step("Выбрать <Валютный счет>")
     public MainPage navigateToCurrency() {
         currencyMenu.click();
         return this;

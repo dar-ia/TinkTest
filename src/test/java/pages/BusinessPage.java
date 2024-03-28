@@ -17,7 +17,7 @@ public class BusinessPage {
             currencyAccountRequestTitle = $("[data-qa-type='uikit/sectionTitle']");
     ElementsCollection thershHoldOptions = $$("[data-qa-type='uikit/filterButton']");
 
-    @Step("Перейти к открытию расчётного счёта")
+    @Step("Нажать на <Открыть счёт>")
     public BusinessPage openAccount() {
         openAccountButton.click();
         accountRequest.shouldHave(Condition.text("Заявка на открытие расчетного счета"));
@@ -41,7 +41,7 @@ public class BusinessPage {
         return this;
     }
 
-    @Step("Перейти к открытию валютного счёта")
+    @Step("Нажать на <Открыть счёт>")
     public BusinessPage openCurrencyAccount() {
         openAccountButton.click();
         return this;

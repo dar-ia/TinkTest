@@ -34,8 +34,9 @@ public class BusinessTest extends TestBase {
     }
 
 
-    @ParameterizedTest(name = "Валютный счёт может быть открыт для компаний с годовым доходом {0} 120")
+    @ParameterizedTest(name = "годовым доходом {0} 120")
     @MethodSource
+    @DisplayName("Валютный счёт может быть открыт для компаний с ")
     @Tags({
             @Tag("FUll_SCOPE"),
             @Tag("READ_ONLY_TEST"),

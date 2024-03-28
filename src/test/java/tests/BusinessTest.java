@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -25,6 +26,7 @@ public class BusinessTest extends TestBase {
             @Tag("READ_ONLY_TEST"),
             @Tag("BUSINESS_TEST")
     })
+    @Owner("dar-ia")
     void accountingCanBeStarted() {
         mainPage.openPage()
                 .openBusinessSection()
@@ -42,6 +44,7 @@ public class BusinessTest extends TestBase {
             @Tag("READ_ONLY_TEST"),
             @Tag("BUSINESS_TEST")
     })
+    @Owner("dar-ia")
     void currencyThreshHoldTest(String threshHold, String currencyTitle, String currencyRequestTitle) {
         mainPage.openPage()
                 .openBusinessSection()

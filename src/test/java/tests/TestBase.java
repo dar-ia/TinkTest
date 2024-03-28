@@ -16,7 +16,7 @@ public class TestBase {
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.tinkoff.ru/");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "122.0");
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
         Configuration.browserSize = System.getProperty("resolution", "1920x1080");
         Configuration.remote = "https://user1:1234@" + System.getProperty("remote", "selenoid.autotests.cloud") + "/wd/hub";
 

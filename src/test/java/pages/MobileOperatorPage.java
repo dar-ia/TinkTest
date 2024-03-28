@@ -29,7 +29,7 @@ public class MobileOperatorPage {
             beautyNumbersOnPanel = slidePanelMobile.get(4),
             roamingOnPanel = slidePanelMobile.get(6);
 
-    @Step("Выбрать eSIM на панели")
+    @Step("Нажать на <eSIM> на скользящей панели")
     public MobileOperatorPage selectElectronicSimonSlidePanel() {
 
         eSimOnPanel.hover(HoverOptions.withOffset(10, 10)).click();
@@ -37,13 +37,13 @@ public class MobileOperatorPage {
         return this;
     }
 
-    @Step("Перейти к выбору красивых номеров")
+    @Step("Нажать на <Красивые номера> на скользящей панели")
     public MobileOperatorPage selectBeautyNumbersOnSlidePanel() {
         beautyNumbersOnPanel.hover(HoverOptions.withOffset(10, 10)).click();
         return this;
     }
 
-    @Step("Перейти к выбору роуминга")
+    @Step("Нажать на <Роуминг> на скользящей панели")
     public MobileOperatorPage selectRoamingOnSlidePanel() {
         roamingOnPanel.hover(HoverOptions.withOffset(10, 10)).click();
         return this;
@@ -55,7 +55,7 @@ public class MobileOperatorPage {
         return this;
     }
 
-    @Step("Выбрана опция '{simOption}'")
+    @Step("'{simOption}' выбирается автоматически")
     public MobileOperatorPage assertSimOption(String simOption) {
         SelenideElement selectedOption = simOptions.find(Condition.text(simOption));
         String value = selectedOption.$("[data-qa-type='uikit/radioBlock.input'] input").getAttribute("aria-checked");
@@ -73,7 +73,7 @@ public class MobileOperatorPage {
 
     }
 
-    @Step("Выбрать случайный номер из списка")
+    @Step("Выбрать номер из списка")
     public MobileOperatorPage selectBeautyNumber(int num) {
         beautyNumbers.get(num)
                 .scrollIntoView(true)
@@ -90,7 +90,7 @@ public class MobileOperatorPage {
         return this;
     }
 
-    @Step("Перейти к заказу сим с красивым номером")
+    @Step("Нажать на <Заказать сим-карту>")
     public MobileOperatorPage orderSimWithBeautyNumber() {
         orderSimWithNumber.click();
         return this;

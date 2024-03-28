@@ -23,14 +23,14 @@ public class MainPage {
         return this;
     }
 
-    @Step("Перейти к логину")
+    @Step("Перейти к личному кабинету (Интрнет-Банк)")
     public MainPage initiateLogIn() {
         loginButton.hover();
         loginOption.click();
         return this;
     }
 
-    @Step("Перейти к мобильным тарифам")
+    @Step("Нажать на <Сим-карта> на скользящей панели")
     public MainPage openSimCards() {
         slidingPanel.get(6).click();
         return this;

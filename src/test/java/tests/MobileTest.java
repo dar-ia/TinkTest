@@ -1,4 +1,6 @@
 package tests;
+
+import helpers.Attachments;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -10,8 +12,9 @@ import pages.MobileOperatorPage;
 import utils.GenerateRandomData;
 
 import java.util.List;
+
 @DisplayName("Тесты на мобильные планы")
-public class MobileTest extends TestBase{
+public class MobileTest extends TestBase {
     MainPage mainPage = new MainPage();
     MobileOperatorPage mobilePage = new MobileOperatorPage();
     GenerateRandomData randomData = new GenerateRandomData();
@@ -23,7 +26,7 @@ public class MobileTest extends TestBase{
             @Tag("READ_ONLY_TEST"),
             @Tag("MOBILE_TESTS")
     })
-    void connectEsimTest(){
+    void connectEsimTest() {
         mainPage.openPage()
                 .openSimCards();
         mobilePage.selectElectronicSimonSlidePanel()
@@ -38,15 +41,15 @@ public class MobileTest extends TestBase{
             @Tag("READ_ONLY_TEST"),
             @Tag("MOBILE_TESTS")
     })
-    void selectBeautyNumberTest(){
+    void selectBeautyNumberTest() {
 
         int randomNumber = randomData.generateRandomNumber();
         mainPage.openPage()
                 .openSimCards();
         mobilePage.selectBeautyNumbersOnSlidePanel();
         List<String> result = mobilePage.fetchBeautyNumberValues(randomNumber);
-        String selectedNumber=result.get(0);
-        String price=result.get(1);
+        String selectedNumber = result.get(0);
+        String price = result.get(1);
         mobilePage.selectBeautyNumber(randomNumber)
                 .orderSimWithBeautyNumber()
                 .assertTheBeautyIsSelectedSuccessfully(selectedNumber, price);
@@ -60,25 +63,26 @@ public class MobileTest extends TestBase{
             @Tag("READ_ONLY_TEST"),
             @Tag("MOBILE_TESTS")
     })
-    void addBeautyNumberToFavoritesTest(){
+    void addBeautyNumberToFavoritesTest() {
         int randomNumber = randomData.generateRandomNumber();
         mainPage.openPage()
                 .openSimCards();
         mobilePage.selectBeautyNumbersOnSlidePanel()
                 .clickOnHeart(randomNumber);
         List<String> result = mobilePage.fetchBeautyNumberValues(randomNumber);
-        String selectedNumber=result.get(0);
+        String selectedNumber = result.get(0);
 
         mobilePage.assertThatNumberIsInFavs(selectedNumber);
 
     }
+
     @DisplayName("Данные для роуминга корректные")
     @Tags({
             @Tag("FUll_SCOPE"),
             @Tag("READ_ONLY_TEST"),
             @Tag("MOBILE_TESTS")
     })
-    @CsvFileSource(resources = "/test_data/tarif.csv",delimiter = ';')
+    @CsvFileSource(resources = "/test_data/tarif.csv", delimiter = ';')
     @ParameterizedTest(name = "Данные для роуминга корректные в стране {0}")
     void roamingTest(String country,
                      String messengers,
@@ -92,20 +96,20 @@ public class MobileTest extends TestBase{
                      String ThirtyMinsPrice,
                      String incomingsPrice,
                      String outgoingsPrice,
-                     String smsPrice){
+                     String smsPrice) {
         mainPage.openPage()
                 .openSimCards();
         mobilePage.selectRoamingOnSlidePanel()
                 .selectRoamingCountry(country)
-                .assertTariffResult("Безлимитные мессенджеры",messengers)
-                .assertTariffResult(thirtyDaysOption,thirtyDaysPrice)
-                .assertTariffResult(sevenDaysOption,sevenDaysPrice)
-                .assertTariffResult(oneDayOption,oneDayPrice)
-                .assertTariffResult("Безлимит на навигацию Google",unlimitedInGooglePrice)
-                .assertTariffResult("30 минут входящих",ThirtyMinsPrice)
-                .assertTariffResult("Входящие",incomingsPrice)
-                .assertTariffResult("Исходящие",outgoingsPrice)
-                .assertTariffResult("СМС",smsPrice);
+                .assertTariffResult("Безлимитные мессенджеры", messengers)
+                .assertTariffResult(thirtyDaysOption, thirtyDaysPrice)
+                .assertTariffResult(sevenDaysOption, sevenDaysPrice)
+                .assertTariffResult(oneDayOption, oneDayPrice)
+                .assertTariffResult("Безлимит на навигацию Google", unlimitedInGooglePrice)
+                .assertTariffResult("30 минут входящих", ThirtyMinsPrice)
+                .assertTariffResult("Входящие", incomingsPrice)
+                .assertTariffResult("Исходящие", outgoingsPrice)
+                .assertTariffResult("СМС", smsPrice);
 
     }
 }

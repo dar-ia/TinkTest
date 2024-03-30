@@ -37,6 +37,7 @@
   gradle clean run_full_scope -DbaseUrl="https://www.tinkoff.ru/" -Dresolution="1920x1080"
   ```
   Список параметров:
+  
   - baseUrl - сервер запуска
   - browser - браузер
   - version - версия браузера
@@ -50,12 +51,12 @@
      - run_business_cases - скоуп тестов на секцию для бизнес пользователей
      - run_mobile_cases - скоуп тестов на мобильного оператора
      - run_auth_cases - скоуп тестов на авторизацию
-  3. BASEURL - сервер, на котором будут запускаться тесты (по дефолту https://www.tinkoff.ru/)
-  4. REMOTE - удалённый селеноид (по дефолту selenoid.autotests.cloud)
-  5. BROWSER - браузер, в котором будет проходить прогон (по дефолту chrome)
-  6. VERSION - версия браузера (по дефолту 122.0)
-  7. RESOLUTION  - разрешение окна браузера (по дефолту 1920x1080)
-  8. NOTIFICATION_COMMENT - комментарий для allure нотификации (по дефолту Simple trigger of ${SCOPE})
+  2. BASEURL - сервер, на котором будут запускаться тесты (по дефолту https://www.tinkoff.ru/)
+  3. BROWSER - браузер, в котором будет проходить прогон (по дефолту chrome)
+  4. VERSION - версия браузера (по дефолту 122.0)
+  5. RESOLUTION  - разрешение окна браузера (по дефолту 1920x1080)
+  6. REMOTE - удалённый селеноид (по дефолту selenoid.autotests.cloud)
+  7. NOTIFICATION_COMMENT - комментарий для allure нотификации (по дефолту Simple trigger of ${SCOPE})
 
 После прогона в ```Build Hisory``` появится ссылка на сборку, которая будет содержать ссылки на тест документацию в ```Allure TestOps``` и ```Allure отчёт```.
   <p align="center">

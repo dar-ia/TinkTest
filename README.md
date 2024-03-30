@@ -30,7 +30,9 @@
    ```
    gradle clean run_full_scope
    ```
-  ![image](https://github.com/dar-ia/TinkTest/assets/64155350/438643e4-759d-4907-b1ec-9da3695b9069)
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/438643e4-759d-4907-b1ec-9da3695b9069  width="700" height="200">
+  </p>
   В команду можно передать параметры, например:
   ```
   gradle clean run_full_scope -DbaseUrl="https://www.tinkoff.ru/" -Dresolution="1920x1080"
@@ -57,13 +59,19 @@
   8. NOTIFICATION_COMMENT - комментарий для allure нотификации (по дефолту Simple trigger of ${SCOPE})
 
 После прогона в ```Build Hisory``` появится ссылка на сборку, которая будет содержать ссылки на тест документацию в ```Allure TestOps``` и ```Allure отчёт```.
-![image](https://github.com/dar-ia/TinkTest/assets/64155350/14e62bb9-6904-4d6c-a56e-ff144b00cc05)
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/14e62bb9-6904-4d6c-a56e-ff144b00cc05  width="900" height="450">
+  </p>
 
   ## Allure отчёт
   Основная страница отчёта  основной информацией о прогоне
-  ![image](https://github.com/dar-ia/TinkTest/assets/64155350/f5f6710e-eecb-4291-8344-af664895cd25)
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/f5f6710e-eecb-4291-8344-af664895cd25  width="900" height="450">
+  </p>  
   Suites содержит список прогнанных кейсов с их шагами:
-  ![image](https://github.com/dar-ia/TinkTest/assets/64155350/141655f3-8092-4e0e-868d-a17d13c6d4e4)
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/141655f3-8092-4e0e-868d-a17d13c6d4e4 width="900" height="450">
+  </p>  
   В конце прогона к каждому кейсу прикрепляются:
   - Последний скрин экрана
   - HTML контент страницы
@@ -72,18 +80,25 @@
 
   ## Настройка уведомлений
   В рамках проекта настроены уведомлений в Telegram. ля этого был создан бот
-  ![image](https://github.com/dar-ia/TinkTest/assets/64155350/765eb31a-1140-4570-b107-12029876084b)
-
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/765eb31a-1140-4570-b107-12029876084b width="450" height="450">
+  </p> 
 
   ## Интеграция с TestOps
   На странице Launches хранится список запусков
-  ![image](https://github.com/dar-ia/TinkTest/assets/64155350/061a8b7d-ec80-4b91-8cda-88e0f2e3acea)
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/061a8b7d-ec80-4b91-8cda-88e0f2e3acea width="900" height="450">
+  </p> 
   Список тест кейсов на Test Cases можно отобразить списком или по сьютам. 
-  ![image](https://github.com/dar-ia/TinkTest/assets/64155350/652379c3-0f6a-47de-9306-6bdc2c878ae9)
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/652379c3-0f6a-47de-9306-6bdc2c878ae9 width="900" height="450">
+  </p> 
 
   ## Интеграци с Jira
   ```Jira``` тикеты слинкованы с кейсами на TestOps
-  ![image](https://github.com/dar-ia/TinkTest/assets/64155350/a69fa12a-de6a-41a9-b97c-299486438a35)
+  <p align="center">
+   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/a69fa12a-de6a-41a9-b97c-299486438a35 width="900" height="450">
+  </p> 
 
   ## Запись выполнения теста на Selenoid
 

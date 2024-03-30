@@ -28,6 +28,10 @@ public class MobileOperatorPage {
             eSimOnPanel = slidePanelMobile.get(2),
             beautyNumbersOnPanel = slidePanelMobile.get(4),
             roamingOnPanel = slidePanelMobile.get(6);
+    String simRadioOptionLocator = "[data-qa-type='uikit/radioBlock.input'] input",
+            beautyNumberTitleLocator = "[data-qa-type='mvno/NumberSelectListItem.title']",
+            iconHeartOnNumberLocator = "[data-qa-type='mvno/iconHeart']",
+            roamingElementPriceLocator = "[data-qa-type='uikit/money']";
 
     @Step("Нажать на <eSIM> на скользящей панели")
     public MobileOperatorPage selectElectronicSimonSlidePanel() {
@@ -58,7 +62,7 @@ public class MobileOperatorPage {
     @Step("'{simOption}' выбирается автоматически")
     public MobileOperatorPage assertSimOption(String simOption) {
         SelenideElement selectedOption = simOptions.find(Condition.text(simOption));
-        String value = selectedOption.$("[data-qa-type='uikit/radioBlock.input'] input").getAttribute("aria-checked");
+        String value = selectedOption.$(simRadioOptionLocator).getAttribute("aria-checked");
         Assertions.assertEquals("true", value);
         return this;
     }
@@ -66,7 +70,7 @@ public class MobileOperatorPage {
     @Step("Запомнить выбранный номер")
     public List<String> fetchBeautyNumberValues(int num) {
         SelenideElement selectedNumber = beautyNumbers.get(num).scrollTo();
-        String number = selectedNumber.$("[data-qa-type='mvno/NumberSelectListItem.title']").getText();
+        String number = selectedNumber.$(beautyNumberTitleLocator).getText();
         String price = selectedNumber.$("div").$("span").getText();
         List<String> result = List.of(number, price);
         return result;
@@ -85,7 +89,7 @@ public class MobileOperatorPage {
     public MobileOperatorPage clickOnHeart(int num) {
         numbersView.scrollTo();
         beautyNumbers.get(num).hover();
-        beautyNumbers.get(num).$("[data-qa-type='mvno/iconHeart']").click();
+        beautyNumbers.get(num).$(iconHeartOnNumberLocator).click();
 
         return this;
     }
@@ -123,10 +127,9 @@ public class MobileOperatorPage {
     @Step("'{optionName}' стоит {optionPrice}")
     public MobileOperatorPage assertTariffResult(String optionName, String optionPrice) {
         SelenideElement roamingResultElement = roamingTariffResults.findBy(Condition.text(optionName)).parent();
-        String stringPrice = roamingResultElement.$("[data-qa-type='uikit/money']")
+        String stringPrice = roamingResultElement.$(roamingElementPriceLocator)
                 .getText().replaceAll("\n", "");
         Assertions.assertEquals(optionPrice, stringPrice);
-
         return this;
     }
 

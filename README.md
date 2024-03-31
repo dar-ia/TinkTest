@@ -23,6 +23,8 @@
    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg" height="60" width="60"/>
    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/512px-Telegram_2019_Logo.svg.png" height="60" width="60"/>
    </p>
+   
+   Автотесты разработаны на языке ```Java``` c использованием фреймворков ```Selenide``` и ```JUnit5```. В качестве сборщика использовался ```Gradle```. В ```Jenkins``` сконфигурена джоба для запуска автотестов на удалённом сервере ```Selenoid``` и отправки результатов прогона в ```Telegram```. С помощью ```Allure``` настроено создание репортов. Так же настроена интеграция с ```Jira``` и ```TestOps``` для ведения тестовой документации.
 
    ## Локальный запуск
    Команда для локального запуска с дефолтными конфигами:
@@ -64,7 +66,7 @@
   </p>
 
   ## Allure отчёт
-  Основная страница отчёта  основной информацией о прогоне
+  Основная страница [отчёта](https://jenkins.autotests.cloud/job/C25-dashulkes-readme-unit/18/allure/) с основной информацией о прогоне
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/f5f6710e-eecb-4291-8344-af664895cd25  width="900" height="450">
   </p>  
@@ -89,13 +91,13 @@
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/061a8b7d-ec80-4b91-8cda-88e0f2e3acea width="900" height="450">
   </p> 
-  Список тест кейсов на Test Cases можно отобразить списком или по сьютам. 
+  Список [тест кейсов](https://allure.autotests.cloud/project/4148/test-cases?treeId=8121) на Test Cases можно отобразить списком или по сьютам. 
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/652379c3-0f6a-47de-9306-6bdc2c878ae9 width="900" height="450">
   </p> 
 
   ## Интеграци с Jira
-  ```Jira``` тикеты слинкованы с кейсами на TestOps
+  ```Jira``` тикеты [слинкованы](https://jira.autotests.cloud/browse/HOMEWORK-1171) с кейсами на TestOps
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/a69fa12a-de6a-41a9-b97c-299486438a35 width="900" height="450">
   </p> 

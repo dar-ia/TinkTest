@@ -97,6 +97,7 @@
   </p> 
 
   ## Интеграци с Jira
+  
   ```Jira``` тикеты [слинкованы](https://jira.autotests.cloud/browse/HOMEWORK-1171) с кейсами на TestOps
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/a69fa12a-de6a-41a9-b97c-299486438a35 width="900" height="450">

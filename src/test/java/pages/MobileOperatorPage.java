@@ -36,7 +36,8 @@ public class MobileOperatorPage {
     @Step("Нажать на <eSIM> на скользящей панели")
     public MobileOperatorPage selectElectronicSimonSlidePanel() {
 
-        eSimOnPanel.hover(HoverOptions.withOffset(10, 10)).click();
+        //eSimOnPanel.hover(HoverOptions.withOffset(10, 10)).click(ClickOptions.usingJavaScript());
+        eSimOnPanel.click(ClickOptions.usingJavaScript());
         connecteSIMButton.click();
         return this;
     }
@@ -49,7 +50,7 @@ public class MobileOperatorPage {
 
     @Step("Нажать на <Роуминг> на скользящей панели")
     public MobileOperatorPage selectRoamingOnSlidePanel() {
-        roamingOnPanel.hover(HoverOptions.withOffset(10, 10)).click();
+        roamingOnPanel.hover(HoverOptions.withOffset(10, 10)).click(ClickOptions.usingJavaScript());
         return this;
     }
 
@@ -125,7 +126,7 @@ public class MobileOperatorPage {
     @Step("Выбрать страну '{country}' для роуминга")
     public MobileOperatorPage selectRoamingCountry(String country) {
         countryRoamingView.scrollTo();
-        searchElement.click();
+        searchElement.click(ClickOptions.usingJavaScript());
         inputCountry.setValue(country);
         return this;
     }

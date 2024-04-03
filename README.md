@@ -35,6 +35,7 @@
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/438643e4-759d-4907-b1ec-9da3695b9069  width="700" height="200">
   </p>
   В команду можно передать параметры, например:
+  
   ```
   gradle clean run_full_scope -DbaseUrl="https://www.tinkoff.ru/" -Dresolution="1920x1080"
   ```
@@ -91,6 +92,7 @@
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/061a8b7d-ec80-4b91-8cda-88e0f2e3acea width="900" height="450">
   </p> 
+  
   Список [тест кейсов](https://allure.autotests.cloud/project/4148/test-cases?treeId=8121) на Test Cases можно отобразить списком или по сьютам. 
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/652379c3-0f6a-47de-9306-6bdc2c878ae9 width="900" height="450">

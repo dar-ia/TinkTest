@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -52,7 +53,7 @@ public class MainPage {
 
     @Step("Выбрать <Валютный счет>")
     public MainPage navigateToCurrency() {
-        currencyMenu.click();
+        currencyMenu.click(ClickOptions.usingJavaScript());
         return this;
     }
 

@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -35,17 +36,17 @@ public class BusinessPage {
     @Step("Поменять диапазон в '{option}' сторону")
     public BusinessPage changeThreshHold(String option) {
         if (option == "<") {
-            thershHoldOptions.get(0).click();
+            thershHoldOptions.get(0).click(ClickOptions.usingJavaScript());
         }
         if (option == ">") {
-            thershHoldOptions.get(1).click();
+            thershHoldOptions.get(1).click(ClickOptions.usingJavaScript());
         } else System.out.println("Invalid function input. Should be < or >");
         return this;
     }
 
     @Step("Нажать на <Открыть счёт>")
     public BusinessPage openCurrencyAccount() {
-        openAccountButton.click();
+        openAccountButton.click(ClickOptions.usingJavaScript());
         return this;
     }
 

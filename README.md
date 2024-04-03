@@ -31,9 +31,7 @@
    ```
    gradle clean run_full_scope
    ```
-  <p align="center">
-   <img src=https://github.com/dar-ia/TinkTest/assets/64155350/438643e4-759d-4907-b1ec-9da3695b9069  width="700" height="200">
-  </p>
+ 
   В команду можно передать параметры, например:
   
   ```
@@ -67,7 +65,7 @@
   </p>
 
   ## Allure отчёт
-  Основная страница [отчёта](https://jenkins.autotests.cloud/job/C25-dashulkes-readme-unit/18/allure/) с основной информацией о прогоне
+  Основная страница [отчёта](https://jenkins.autotests.cloud/job/C25-dashulkes-readme-unit/allure/) с основной информацией о прогоне
   <p align="center">
    <img src=https://github.com/dar-ia/TinkTest/assets/64155350/f5f6710e-eecb-4291-8344-af664895cd25  width="900" height="450">
   </p>  

@@ -32,7 +32,8 @@ public class BusinessTest extends TestBase {
                 .openBusinessSection()
                 .navigateToAccounting();
 
-        businessPage.openAccount();
+        businessPage.openAccount()
+                .assertAccountOpened();
     }
 
 

@@ -4,8 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -19,12 +17,16 @@ public class BusinessPage {
 
     @Step("Нажать на <Открыть счёт>")
     public BusinessPage openAccount() {
-        openAccountButton.click();
+        accountRequest.shouldHave(Condition.text("Заявка на открытие расчетного счета"));
+        return this;
+    }
+    @Step("Проверить, что заявка на открытие счёта открыта")
+    public BusinessPage assertAccountOpened() {
         accountRequest.shouldHave(Condition.text("Заявка на открытие расчетного счета"));
         return this;
     }
 
-    @Step("Для этого диапазона должен быть виден '{title}'")
+    @Step("Проверить, что для выбранного диапазона виден заголовок '{title}'")
     public BusinessPage assertCurrencyTitle(String title) {
         currencyTreshHoldTitle.shouldHave(Condition.text(title));
         return this;
@@ -47,7 +49,7 @@ public class BusinessPage {
         return this;
     }
 
-    @Step("Запрос на открытие валютного счёта должен быть '{title}'")
+    @Step("Проверить, что запрос на открытие валютного счёта виден и содержит заголовок '{title}'")
     public BusinessPage assertCurrencyRequestTitle(String title) {
         currencyAccountRequestTitle.shouldHave(Condition.text(title));
         return this;

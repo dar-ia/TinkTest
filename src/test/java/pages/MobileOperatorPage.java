@@ -89,7 +89,7 @@ public class MobileOperatorPage {
     public MobileOperatorPage clickOnHeart(int num) {
         numbersView.scrollTo();
         beautyNumbers.get(num).hover();
-        beautyNumbers.get(num).$(iconHeartOnNumberLocator).click();
+        beautyNumbers.get(num).$(iconHeartOnNumberLocator).click(ClickOptions.usingJavaScript());
 
         return this;
     }
@@ -108,10 +108,16 @@ public class MobileOperatorPage {
         return this;
     }
 
-    @Step("Номер {number} добавлен в избранное")
-    public MobileOperatorPage assertThatNumberIsInFavs(String number) {
+    @Step("Перейти на табу <Избранное>")
+    public MobileOperatorPage moveToFavoritesTab() {
         regionTitle.scrollTo();
         numbersTabs.get(1).click();
+        //favoriteNumber.shouldHave(Condition.text(number));
+        return this;
+    }
+
+    @Step("Убедиться, что номер {number} добавлен в избранное")
+    public MobileOperatorPage asserThatNumberIsAdded(String number){
         favoriteNumber.shouldHave(Condition.text(number));
         return this;
     }

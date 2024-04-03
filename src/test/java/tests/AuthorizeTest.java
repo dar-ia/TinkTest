@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
 import pages.MainPage;
+
 @DisplayName("Тесты на авторизацию")
-public class AuthorizeTest extends TestBase{
+public class AuthorizeTest extends TestBase {
     MainPage mainPage = new MainPage();
     LoginPage loginPage = new LoginPage();
 
@@ -25,8 +26,9 @@ public class AuthorizeTest extends TestBase{
         mainPage.openPage()
                 .initiateLogIn();
 
-        loginPage.tryToLogin("234").
-        assertThatLoginFailed();
+        loginPage.setLoginNumber("234")
+                .submitLogin()
+                .assertThatLoginFailed();
 
     }
 }

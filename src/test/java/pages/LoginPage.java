@@ -11,13 +11,19 @@ public class LoginPage extends MainPage {
     SelenideElement submit = $("button[automation-id='button-submit']");
     SelenideElement errorText = $("[automation-id='server-error']");
 
-    @Step("Пользователь пытается залогиниться с невалидным номером {number}")
-    public LoginPage tryToLogin(String number) {
+    @Step("Пользователь вводит номер: {number}")
+    public LoginPage setLoginNumber(String number) {
         switchTo().window(1);
         phoneNumber.setValue(number);
+        return this;
+    }
+
+    @Step("Ползователь подтверждает логин")
+    public LoginPage submitLogin(){
         submit.click();
         return this;
     }
+
 
     @Step("Проверка, что логин не возможен")
     public LoginPage assertThatLoginFailed() {

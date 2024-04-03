@@ -76,7 +76,8 @@ public class MobileTest extends TestBase {
         List<String> result = mobilePage.fetchBeautyNumberValues(randomNumber);
         String selectedNumber = result.get(0);
 
-        mobilePage.assertThatNumberIsInFavs(selectedNumber);
+        mobilePage.moveToFavoritesTab()
+                .asserThatNumberIsAdded(selectedNumber);
 
     }
 

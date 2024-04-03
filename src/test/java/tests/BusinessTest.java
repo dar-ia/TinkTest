@@ -14,6 +14,8 @@ import pages.MainPage;
 import java.util.stream.Stream;
 
 @DisplayName("Тесты на секцию для бизнес пользователей")
+@Owner("dar-ia")
+@Tag("BUSINESS_TEST")
 public class BusinessTest extends TestBase {
 
     MainPage mainPage = new MainPage();
@@ -21,12 +23,6 @@ public class BusinessTest extends TestBase {
 
     @Test
     @DisplayName("Заявка на открытие расчётного счёта открывается")
-    @Tags({
-            @Tag("FUll_SCOPE"),
-            @Tag("READ_ONLY_TEST"),
-            @Tag("BUSINESS_TEST")
-    })
-    @Owner("dar-ia")
     void accountingCanBeStarted() {
         mainPage.openPage()
                 .openBusinessSection()
@@ -40,12 +36,6 @@ public class BusinessTest extends TestBase {
     @ParameterizedTest(name = "годовым доходом {0} 120")
     @MethodSource
     @DisplayName("Валютный счёт может быть открыт для компаний с ")
-    @Tags({
-            @Tag("FUll_SCOPE"),
-            @Tag("READ_ONLY_TEST"),
-            @Tag("BUSINESS_TEST")
-    })
-    @Owner("dar-ia")
     void currencyThreshHoldTest(String threshHold, String currencyTitle, String currencyRequestTitle) {
         mainPage.openPage()
                 .openBusinessSection()

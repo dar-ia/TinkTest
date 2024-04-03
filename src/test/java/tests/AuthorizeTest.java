@@ -9,6 +9,8 @@ import pages.LoginPage;
 import pages.MainPage;
 
 @DisplayName("Тесты на авторизацию")
+@Owner("dar-ia")
+@Tag("AUTHORIZATION_TEST")
 public class AuthorizeTest extends TestBase {
     MainPage mainPage = new MainPage();
     LoginPage loginPage = new LoginPage();
@@ -16,12 +18,6 @@ public class AuthorizeTest extends TestBase {
 
     @Test
     @DisplayName("Негативный тест на авторизацию с не валидным форматом номера")
-    @Tags({
-            @Tag("NEGATIVE"),
-            @Tag("FUll_SCOPE"),
-            @Tag("AUTHORIZATION_TEST")
-    })
-    @Owner("dar-ia")
     void authorizeWithInvalidNumberFormatTest() {
         mainPage.openPage()
                 .initiateLogIn();

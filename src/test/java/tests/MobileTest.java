@@ -15,6 +15,8 @@ import utils.GenerateRandomData;
 import java.util.List;
 
 @DisplayName("Тесты на мобильного оператора")
+@Owner("dar-ia")
+@Tag("MOBILE_TESTS")
 public class MobileTest extends TestBase {
     MainPage mainPage = new MainPage();
     MobileOperatorPage mobilePage = new MobileOperatorPage();
@@ -22,12 +24,6 @@ public class MobileTest extends TestBase {
 
     @Test
     @DisplayName("Тест на добавление eSIM")
-    @Tags({
-            @Tag("FUll_SCOPE"),
-            @Tag("READ_ONLY_TEST"),
-            @Tag("MOBILE_TESTS")
-    })
-    @Owner("dar-ia")
     void connectEsimTest() {
         mainPage.openPage()
                 .openSimCards();
@@ -38,12 +34,6 @@ public class MobileTest extends TestBase {
 
     @Test
     @DisplayName("Тест на выбор красивых номеров")
-    @Tags({
-            @Tag("FUll_SCOPE"),
-            @Tag("READ_ONLY_TEST"),
-            @Tag("MOBILE_TESTS")
-    })
-    @Owner("dar-ia")
     void selectBeautyNumberTest() {
 
         int randomNumber = randomData.generateRandomNumber();
@@ -61,12 +51,6 @@ public class MobileTest extends TestBase {
 
     @Test
     @DisplayName("Тест на добавление номера в избранное")
-    @Tags({
-            @Tag("FUll_SCOPE"),
-            @Tag("READ_ONLY_TEST"),
-            @Tag("MOBILE_TESTS")
-    })
-    @Owner("dar-ia")
     void addBeautyNumberToFavoritesTest() {
         int randomNumber = randomData.generateRandomNumber();
         mainPage.openPage()
@@ -82,14 +66,9 @@ public class MobileTest extends TestBase {
     }
 
     @DisplayName("Тест на роуминг тарифы")
-    @Tags({
-            @Tag("FUll_SCOPE"),
-            @Tag("READ_ONLY_TEST"),
-            @Tag("MOBILE_TESTS")
-    })
     @CsvFileSource(resources = "/test_data/tarif.csv", delimiter = ';')
     @ParameterizedTest(name = "Данные для роуминга корректные в стране {0}")
-    @Owner("dar-ia")
+
     void roamingTest(String country,
                      String messengers,
                      String thirtyDaysOption,

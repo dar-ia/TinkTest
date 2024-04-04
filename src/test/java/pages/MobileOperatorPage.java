@@ -112,10 +112,14 @@ public class MobileOperatorPage {
 
     @Step("Добавить номер в избранное")
     public MobileOperatorPage clickOnHeart(int num) {
-        numbersView.scrollTo();
-        beautyNumbers.get(num).hover();
-        beautyNumbers.get(num).$(iconHeartOnNumberLocator).click(ClickOptions.usingJavaScript());
 
+        numbersView.scrollTo();
+        int h = beautyNumbers.get(num).getRect().height / 2;
+        int w = beautyNumbers.get(num).getRect().width / 2;
+        Actions action = new Actions(webdriver().object());
+        action.moveToElement(beautyNumbers.get(num), -w, -h)
+                .click()
+                .perform();
         return this;
     }
 

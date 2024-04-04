@@ -34,6 +34,7 @@ dependencies {
 
     )
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'com.opencsv:opencsv:5.9'
     runtimeOnly 'org.aspectj:aspectjweaver:1.9.20'
 }
 

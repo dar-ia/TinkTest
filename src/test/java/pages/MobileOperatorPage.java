@@ -1,13 +1,22 @@
 package pages;
 
 import com.codeborne.selenide.*;
+import com.opencsv.*;
+import com.opencsv.exceptions.CsvException;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -128,7 +137,6 @@ public class MobileOperatorPage {
     public MobileOperatorPage moveToFavoritesTab() {
         regionTitle.scrollTo();
         numbersTabs.get(1).click();
-        //favoriteNumber.shouldHave(Condition.text(number));
         return this;
     }
 
@@ -147,7 +155,6 @@ public class MobileOperatorPage {
         action.moveToElement(searchElement, -h, -w)
                 .click()
                 .perform();
-        //searchElement.click(ClickOptions.usingJavaScript());
         inputCountry.setValue(country);
         return this;
     }
@@ -160,5 +167,37 @@ public class MobileOperatorPage {
         Assertions.assertEquals(optionPrice, stringPrice);
         return this;
     }
+
+    public static List<List<String>> readData() throws IOException, CsvException {
+        try (InputStream stream = MobileOperatorPage.class.getClassLoader().getResourceAsStream("test_data/tarif.csv");
+
+             CSVReader reader = new CSVReaderBuilder(new InputStreamReader(stream, StandardCharsets.UTF_8))
+                     .withCSVParser(new CSVParserBuilder()
+                             .withSeparator(';')
+                             .build()
+                     ).build()) {
+
+            List<String[]> dataLines = reader.readAll();
+
+
+            List<List<String>> data = new ArrayList<>();
+            int i = 0;
+            while (i < dataLines.size()) {
+                List<String> line = new ArrayList<>();
+
+                for (String title : dataLines.get(i)) {
+                    line.add(title);
+                }
+                data.add(line);
+
+                i++;
+
+            }
+
+            return data;
+        }
+
+    }
+
 
 }

@@ -1,16 +1,22 @@
 package tests;
 
+import com.opencsv.exceptions.CsvException;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import pages.MainPage;
 import pages.MobileOperatorPage;
 import utils.GenerateRandomData;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.stream.Stream;
+
+import static pages.MobileOperatorPage.readData;
 
 @DisplayName("Тесты на мобильного оператора")
 @Owner("dar-ia")
@@ -63,24 +69,24 @@ public class MobileTest extends TestBase {
 
     }
 
+
     @DisplayName("Тест на роуминг тарифы")
-    @CsvFileSource(resources = "/test_data/tarif.csv", delimiter = ';')
+    @MethodSource
     @ParameterizedTest(name = "Данные для роуминга корректные в стране {0}")
-
-    void roamingTest(String country,
-                     String messengers,
-                     String thirtyDaysOption,
-                     String thirtyDaysPrice,
-                     String sevenDaysOption,
-                     String sevenDaysPrice,
-                     String oneDayOption,
-                     String oneDayPrice,
-                     String unlimitedInGooglePrice,
-                     String ThirtyMinsPrice,
-                     String incomingsPrice,
-                     String outgoingsPrice,
-                     String smsPrice) {
-
+    void roamingTest(String country, List<String> data) {
+        System.out.println();
+        String messengers = data.get(1);
+        String thirtyDaysOption = data.get(2);
+        String thirtyDaysPrice = data.get(3);
+        String sevenDaysOption = data.get(4);
+        String sevenDaysPrice = data.get(5);
+        String oneDayOption = data.get(6);
+        String oneDayPrice = data.get(7);
+        String unlimitedInGooglePrice = data.get(8);
+        String ThirtyMinsPrice = data.get(9);
+        String incomingsPrice = data.get(10);
+        String outgoingsPrice = data.get(11);
+        String smsPrice = data.get(12);
 
         mainPage.openPage()
                 .openSimCards();
@@ -95,6 +101,14 @@ public class MobileTest extends TestBase {
                 .assertTariffResult("Входящие", incomingsPrice)
                 .assertTariffResult("Исходящие", outgoingsPrice)
                 .assertTariffResult("СМС", smsPrice);
+
+    }
+
+    static Stream<Arguments> roamingTest() throws IOException, CsvException {
+        return Stream.of(
+                Arguments.of(readData().get(0).get(0), readData().get(0)),
+                Arguments.of(readData().get(1).get(0), readData().get(1))
+        );
 
     }
 

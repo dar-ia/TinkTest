@@ -39,7 +39,6 @@ public class MainPage {
 
     @Step("Навести курсор на <Бизнесу> на верхней панели")
     public MainPage openBusinessSection() {
-        //sleep(1000);
         businessOption.shouldBe(Condition.visible);
         businessOption.hover();
         return this;

@@ -48,7 +48,7 @@
    ## Сборка в Jenkins
    В ```Jenkins``` настроена [джоба для запуска](https://jenkins.autotests.cloud/job/C25-dashulkes-readme-unit/). Для запуска необходимо перейти в ```Build with Parameters``` и нажать ```Build```. Параметры сборки:
   1. SCOPE - список скоупов тестов для запуска (по дефолту run_full_scope).
-     - run_full_scope - скоуп всех тестов
+     - test - скоуп всех тестов
      - run_business_cases - скоуп тестов на секцию для бизнес пользователей
      - run_mobile_cases - скоуп тестов на мобильного оператора
      - run_auth_cases - скоуп тестов на авторизацию

@@ -3,7 +3,11 @@ package pages;
 import com.codeborne.selenide.*;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -14,7 +18,8 @@ public class MobileOperatorPage {
             beautyNumbers = $$("[data-qa-type='mvno/NumberSelectItem']"),
             numbersTabs = $$("[data-qa-type='uikit/tabs.item']"),
             roamingTariffResults = $$("[data-qa-type='mvno/roamingOptionName']");
-    SelenideElement connecteSIMButton = $("[data-test='htmlTag button'] [data-size='l']"),
+    SelenideElement panel = $("[data-test='panel slides']"),
+            connecteSIMButton = $("[data-test='htmlTag button'] [data-size='l']"),
             frameTitle = $("[data-qa-type='uikit/titleAndSubtitle.textPrimary']"),
             numbersView = $("[data-qa-type='mvno/NumberSelect.numbersList']"),
             orderSimWithNumber = $("[data-qa-type='uikit/button']"),
@@ -35,9 +40,13 @@ public class MobileOperatorPage {
 
     @Step("Нажать на <eSIM> на скользящей панели")
     public MobileOperatorPage selectElectronicSimonSlidePanel() {
-
-        //eSimOnPanel.hover(HoverOptions.withOffset(10, 10)).click(ClickOptions.usingJavaScript());
-        eSimOnPanel.click(ClickOptions.usingJavaScript());
+        panel.scrollIntoView(true);
+        int h = eSimOnPanel.getRect().height / 2;
+        int w = eSimOnPanel.getRect().width / 2;
+        Actions action = new Actions(webdriver().object());
+        action.moveToElement(eSimOnPanel, -w, -h)
+                .click()
+                .perform();
         connecteSIMButton.click();
         return this;
     }
@@ -50,7 +59,13 @@ public class MobileOperatorPage {
 
     @Step("Нажать на <Роуминг> на скользящей панели")
     public MobileOperatorPage selectRoamingOnSlidePanel() {
-        roamingOnPanel.hover(HoverOptions.withOffset(10, 10)).click(ClickOptions.usingJavaScript());
+        panel.scrollIntoView(true);
+        int h = roamingOnPanel.getRect().height / 2;
+        int w = roamingOnPanel.getRect().width / 2;
+        Actions action = new Actions(webdriver().object());
+        action.moveToElement(roamingOnPanel, -w, -h)
+                .click()
+                .perform();
         return this;
     }
 
@@ -118,7 +133,7 @@ public class MobileOperatorPage {
     }
 
     @Step("Убедиться, что номер {number} добавлен в избранное")
-    public MobileOperatorPage asserThatNumberIsAdded(String number){
+    public MobileOperatorPage asserThatNumberIsAdded(String number) {
         favoriteNumber.shouldHave(Condition.text(number));
         return this;
     }
@@ -126,7 +141,13 @@ public class MobileOperatorPage {
     @Step("Выбрать страну '{country}' для роуминга")
     public MobileOperatorPage selectRoamingCountry(String country) {
         countryRoamingView.scrollTo();
-        searchElement.click(ClickOptions.usingJavaScript());
+        int h = searchElement.getRect().height / 2;
+        int w = searchElement.getRect().width / 2;
+        Actions action = new Actions(webdriver().object());
+        action.moveToElement(searchElement, -h, -w)
+                .click()
+                .perform();
+        //searchElement.click(ClickOptions.usingJavaScript());
         inputCountry.setValue(country);
         return this;
     }

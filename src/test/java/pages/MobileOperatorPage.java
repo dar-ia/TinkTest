@@ -84,7 +84,7 @@ public class MobileOperatorPage {
         return this;
     }
 
-    @Step("'{simOption}' выбирается автоматически")
+    @Step("Проверить, что опция '{simOption}' выбирается автоматически")
     public MobileOperatorPage assertSimOption(String simOption) {
         SelenideElement selectedOption = simOptions.find(Condition.text(simOption));
         String value = selectedOption.$(simRadioOptionLocator).getAttribute("aria-checked");
@@ -130,7 +130,7 @@ public class MobileOperatorPage {
 
     }
 
-    @Step("Номер '{number}' добавлен в корзину по цене '{price}'")
+    @Step("НПроверить, что номер '{number}' добавлен в корзину по цене '{price}'")
     public MobileOperatorPage assertTheBeautyIsSelectedSuccessfully(String number, String price) {
         selectedOnOrderNumber.shouldHave(Condition.text(number));
         selectedOnOrderPrice.shouldHave(Condition.text(price));
@@ -163,7 +163,7 @@ public class MobileOperatorPage {
         return this;
     }
 
-    @Step("'{optionName}' стоит {optionPrice}")
+    @Step("Проверить, что '{optionName}' стоит {optionPrice}")
     public MobileOperatorPage assertTariffResult(String optionName, String optionPrice) {
         SelenideElement roamingResultElement = roamingTariffResults.findBy(Condition.text(optionName)).parent();
         String stringPrice = roamingResultElement.$(roamingElementPriceLocator)

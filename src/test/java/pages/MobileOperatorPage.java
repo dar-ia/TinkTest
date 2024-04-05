@@ -113,17 +113,18 @@ public class MobileOperatorPage {
     @Step("Добавить номер в избранное")
     public MobileOperatorPage clickOnHeart(int num) {
 
-        numbersView.scrollTo();
         int h = beautyNumbers.get(num).getRect().height/2;
         int w = beautyNumbers.get(num).getRect().width/2;
         Actions action = new Actions(webdriver().object());
-        action.moveToElement(beautyNumbers.get(num), -w, -h)
+        action.scrollToElement(beautyNumbers.get(num))
+                .moveToElement(beautyNumbers.get(num), -w, -h)
                 .perform();
+
 
         int h_heart = beautyNumbers.get(num).$(iconHeartOnNumberLocator).getRect().height / 2;
         int w_heart = beautyNumbers.get(num).$(iconHeartOnNumberLocator).getRect().width / 2;
-        Actions action_heart = new Actions(webdriver().object());
-        action_heart.moveToElement(beautyNumbers.get(num).$(iconHeartOnNumberLocator), -w_heart, -h_heart)
+        Actions actionHeart = new Actions(webdriver().object());
+        actionHeart.moveToElement(beautyNumbers.get(num).$(iconHeartOnNumberLocator), -w_heart, -h_heart)
                 .click()
                 .perform();
         return this;

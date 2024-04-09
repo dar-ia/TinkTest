@@ -3,7 +3,6 @@ package tests;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -27,11 +26,9 @@ public class BusinessTest extends TestBase {
         mainPage.openPage()
                 .openBusinessSection()
                 .navigateToAccounting();
-
         businessPage.openAccount()
                 .assertAccountOpened();
     }
-
 
     @ParameterizedTest(name = "годовым доходом {0} 120")
     @MethodSource
@@ -40,12 +37,10 @@ public class BusinessTest extends TestBase {
         mainPage.openPage()
                 .openBusinessSection()
                 .navigateToCurrency();
-
         businessPage.changeThreshHold(threshHold)
                 .assertCurrencyTitle(currencyTitle)
                 .openCurrencyAccount()
                 .assertCurrencyRequestTitle(currencyRequestTitle);
-
     }
 
     static Stream<Arguments> currencyThreshHoldTest() {
@@ -57,7 +52,5 @@ public class BusinessTest extends TestBase {
                         "Банк для ВЭД",
                         "Открыть валютный счет онлайн")
         );
-
     }
-
 }

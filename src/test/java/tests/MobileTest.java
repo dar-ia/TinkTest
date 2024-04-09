@@ -39,7 +39,6 @@ public class MobileTest extends TestBase {
     @Test
     @DisplayName("Тест на выбор красивых номеров")
     void selectBeautyNumberTest() {
-
         int randomNumber = randomData.generateRandomNumber();
         mainPage.openPage()
                 .openSimCards();
@@ -50,7 +49,6 @@ public class MobileTest extends TestBase {
         mobilePage.selectBeautyNumber(randomNumber)
                 .orderSimWithBeautyNumber()
                 .assertTheBeautyIsSelectedSuccessfully(selectedNumber, price);
-
     }
 
     @Test
@@ -63,12 +61,9 @@ public class MobileTest extends TestBase {
                 .clickOnHeart(randomNumber);
         List<String> result = mobilePage.fetchBeautyNumberValues(randomNumber);
         String selectedNumber = result.get(0);
-
         mobilePage.moveToFavoritesTab()
                 .asserThatNumberIsAdded(selectedNumber);
-
     }
-
 
     @DisplayName("Тест на роуминг тарифы")
     @MethodSource
@@ -87,7 +82,6 @@ public class MobileTest extends TestBase {
         String incomingsPrice = data.get(10);
         String outgoingsPrice = data.get(11);
         String smsPrice = data.get(12);
-
         mainPage.openPage()
                 .openSimCards();
         mobilePage.selectRoamingOnSlidePanel()
@@ -101,7 +95,6 @@ public class MobileTest extends TestBase {
                 .assertTariffResult("Входящие", incomingsPrice)
                 .assertTariffResult("Исходящие", outgoingsPrice)
                 .assertTariffResult("СМС", smsPrice);
-
     }
 
     static Stream<Arguments> roamingTest() throws IOException, CsvException {
@@ -109,8 +102,5 @@ public class MobileTest extends TestBase {
                 Arguments.of(readData().get(0).get(0), readData().get(0)),
                 Arguments.of(readData().get(1).get(0), readData().get(1))
         );
-
     }
-
-
 }

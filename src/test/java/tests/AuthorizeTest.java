@@ -3,7 +3,6 @@ package tests;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
 import pages.MainPage;
@@ -15,16 +14,13 @@ public class AuthorizeTest extends TestBase {
     MainPage mainPage = new MainPage();
     LoginPage loginPage = new LoginPage();
 
-
     @Test
     @DisplayName("Негативный тест на авторизацию с не валидным форматом номера")
     void authorizeWithInvalidNumberFormatTest() {
         mainPage.openPage()
                 .initiateLogIn();
-
         loginPage.setLoginNumber("234")
                 .submitLogin()
                 .assertThatLoginFailed();
-
     }
 }

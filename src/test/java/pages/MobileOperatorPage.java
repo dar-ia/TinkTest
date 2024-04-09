@@ -119,8 +119,6 @@ public class MobileOperatorPage {
         action.scrollToElement(beautyNumbers.get(num))
                 .moveToElement(beautyNumbers.get(num), -w, -h)
                 .perform();
-
-
         int h_heart = beautyNumbers.get(num).$(iconHeartOnNumberLocator).getRect().height / 2;
         int w_heart = beautyNumbers.get(num).$(iconHeartOnNumberLocator).getRect().width / 2;
         Actions actionHeart = new Actions(webdriver().object());
